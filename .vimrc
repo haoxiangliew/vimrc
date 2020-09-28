@@ -1,6 +1,6 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Hao Xiang Liew's .vimrc
-" My development environment including IDE features
+"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set nocompatible to prevent conflicts in configurations
 set nocompatible
@@ -19,40 +19,31 @@ Plug 'junegunn/fzf'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'jiangmiao/auto-pairs'
-" yarn global add prettier
-Plug 'prettier/vim-prettier'
 Plug 'vim-airline/vim-airline'
 Plug 'ryanoasis/vim-devicons'
 Plug 'ervandew/supertab'
 Plug 'honza/vim-snippets'
 Plug 'mhinz/vim-startify'
+Plug '0x84/vim-coderunner'
 
-" Configuring coc.nvim for autocomplete
+" Installing coc.nvim for autocomplete
 " Make sure nodejs, npm, and yarn are installed on the system!
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+call plug#end()
+
 " coc.nvim extensions
 
-" clangd
-Plug 'clangd/coc-clangd', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
-Plug 'antonk52/coc-cssmodules', {'do': 'yarn install --frozen-lockfile'}
-Plug 'weirongxu/coc-explorer', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
-" default-jdk
-Plug 'neoclide/coc-java', {'do': 'yarn install --frozen-lockfile'}
-" python3
-Plug 'neoclide/coc-python', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
-" dotnet-sdk
-Plug 'coc-extensions/coc-omnisharp', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
-Plug 'fannheyward/coc-sql', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}
-" yarn global add vim-language-server
-Plug 'iamcco/coc-vimlsp', {'do': 'yarn install --frozen-lockfile'}
+" Prerequisites
+" coc-clangd: clangd
+" coc-omnisharp: dotnet-sdk
+" coc-java: default-jdk && :CocCommand java.updateLanguageServer
+" coc-python: python3
+" coc-sql: yarn global add node-sql-parser && npm i -g sql-formatter
+" coc-vimlsp: yarn global add vim-language-server
+" coc-sh: npm i -g bash-language-server
 
-call plug#end()
+let g:coc_global_extensions = ['coc-marketplace', 'coc-clangd', 'coc-omnisharp', 'coc-css', 'coc-cssmodules', 'coc-tsserver', 'coc-java', 'coc-python', 'coc-json', 'coc-sql', 'coc-snippets', 'coc-vimlsp', 'coc-highlight', 'coc-sh', 'coc-spell-checker']
 
 " Better SuperTab
 let g:SuperTabDefaultCompletionType="<c-n>"
@@ -80,6 +71,9 @@ map <Del> :%s/\s\+$//e
 " Set how many lines vim remembers
 set history=1000
 
+" Set how many levels of undo in vim
+set undolevels=1000
+
 " Enable filetype plugins
 filetype plugin on
 filetype indent on
@@ -106,6 +100,9 @@ set smartcase
 set hlsearch
 set incsearch
 set magic
+
+" Set a faster update time for autocomplete performance
+set updatetime=300
 
 " Don't redraw while executing macros for performance
 set lazyredraw
@@ -138,6 +135,3 @@ set tabstop=4
 
 " Always show status line
 set laststatus=2
-
-" Prevent vim from starting in replace mode in WSL
-set t_u7=
