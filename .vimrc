@@ -45,6 +45,9 @@ call plug#end()
 
 let g:coc_global_extensions = ['coc-marketplace', 'coc-clangd', 'coc-omnisharp', 'coc-css', 'coc-cssmodules', 'coc-tsserver', 'coc-java', 'coc-python', 'coc-json', 'coc-sql', 'coc-snippets', 'coc-vimlsp', 'coc-highlight', 'coc-sh', 'coc-spell-checker']
 
+" Use :VimUpdate to update coc.nvim and vim-plug
+command VimUpdate PlugUpdate|CocUpdate
+
 " Better SuperTab
 let g:SuperTabDefaultCompletionType="<c-n>"
 
