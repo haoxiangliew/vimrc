@@ -25,10 +25,6 @@ Plug 'ervandew/supertab'
 Plug 'honza/vim-snippets'
 Plug 'mhinz/vim-startify'
 
-" Installing coc.nvim for autocomplete
-" Make sure nodejs, npm, and yarn are installed on the system!
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
 call plug#end()
 
 " Better SuperTab
